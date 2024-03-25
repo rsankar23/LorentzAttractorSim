@@ -52,7 +52,15 @@ if __name__ == "__main__":
         "y":random.uniform(0,10),
         "z":random.uniform(0,10)
     }
-    set_val = int(input("Hello! Please enter the number of points you would like to simulate. Single core processors are not recommended to use values >1e8."))
-    lorentz = LorentzAttractor(N=set_val, sigma=10.0, rho = 28, beta=2.667, start_conditions=initial_conditions)
-    lorentz.plot()
+    set_val = int(input("Hello! Please enter the number of points you would like to simulate. Single core processors are not recommended to use values >1e8.\n"))
+    use_def = bool(input("Would you like to use the default Lorentz constant parameters? Enter 1 for yes, 2 for no.\n"))
+    if use_def:
+        lorentz = LorentzAttractor(N=set_val, sigma=10.0, rho = 28, beta=2.667, start_conditions=initial_conditions)
+        lorentz.plot()
+    else:
+        user_sigma = float(input("Please enter the sigma constant value:\n"))
+        user_rho = float(input("Please enter the rho constant value:\n"))
+        user_beta = float(input("Please enter the beta constant value:\n"))
+        lorentz = LorentzAttractor(N=set_val, sigma=user_sigma, rho = user_rho, beta=user_beta, start_conditions=initial_conditions)
+        lorentz.plot()
 
