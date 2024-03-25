@@ -52,6 +52,7 @@ if __name__ == "__main__":
         "y":random.uniform(0,10),
         "z":random.uniform(0,10)
     }
-    lorentz = LorentzAttractor(N=int(1e7), sigma=10.0, rho = 28, beta=2.667, start_conditions=initial_conditions)
+    set_val = int(input("Hello! Please enter the number of points you would like to simulate. Single core processors are not recommended to use values >1e8."))
+    lorentz = LorentzAttractor(N=set_val, sigma=10.0, rho = 28, beta=2.667, start_conditions=initial_conditions)
     lorentz.plot()
 
